@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1624627866230
+Build-Jdk: 1.8.0_291
+Built-By: Pham Hong Nghia
+Bundle-ManifestVersion: 2
+Bundle-Name: person-model
+Bundle-SymbolicName: person-model
+Bundle-Version: 1.0.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: karaf.person.model;uses:="javax.persistence";version="1.
+ 0.0.SNAPSHOT"
+Import-Package: javassist.util.proxy,javax.persistence;version="[2,3)",o
+ rg.hibernate.proxy
+Tool: Bnd-1.50.0

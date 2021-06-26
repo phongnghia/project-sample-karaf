@@ -1,0 +1,36 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1624627870811
+Build-Jdk: 1.8.0_291
+Built-By: Pham Hong Nghia
+Bundle-Blueprint: OSGI-INF/blueprint/service.xml
+Bundle-ManifestVersion: 2
+Bundle-Name: person-service
+Bundle-SymbolicName: person-service
+Bundle-Version: 1.0.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+DynamicImport-Package: org.hibernate.proxy,javassist.util.proxy
+Export-Package: karaf.person.service;version="1.0.0.SNAPSHOT";uses:="kar
+ af.person.model"
+Export-Service: karaf.person.service.PersonService;osgi.service.blueprin
+ t.compname=personService
+Import-Package: karaf.person.model;version="[1.0,2)",javax.persistence;v
+ ersion="[2.2,3)",javax.persistence.criteria;version="[2.2,3)",javax.tra
+ nsaction;version="[1.2,2)",karaf.person.service;version="[1.0,2)",org.o
+ sgi.service.blueprint;version="[1.0.0,2.0.0)",org.hibernate.proxy;resol
+ ution:=optional,javassist.util.proxy;resolution:=optional
+Meta-Persistence: META-INF/persistence.xml
+Provide-Capability: osgi.service;effective:=active;objectClass="javax.pe
+ rsistence.EntityManager";osgi.unit.name=person-data,osgi.service;effect
+ ive:=active;objectClass="javax.persistence.EntityManagerFactory";osgi.u
+ nit.name=person-data,osgi.service;effective:=active;objectClass="org.ap
+ ache.aries.jpa.template.JpaTemplate";osgi.unit.name=person-data,osgi.se
+ rvice;effective:=active;objectClass="org.apache.aries.jpa.supplier.EmSu
+ pplier";osgi.unit.name=person-data
+Require-Capability: osgi.extender;osgi.extender="aries.jpa",osgi.service
+ ;effective:=active;objectClass="javax.persistence.spi.PersistenceProvid
+ er";javax.persistence.provider="org.hibernate.jpa.HibernatePersistenceP
+ rovider",osgi.service;effective:=active;objectClass="javax.transaction.
+ TransactionManager",osgi.service;effective:=active;objectClass="javax.s
+ ql.DataSource";filter:="(osgi.jndi.service.name=person-ds)",osgi.ee;fil
+ ter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-5.1.1.202006162103

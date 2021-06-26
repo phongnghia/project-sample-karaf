@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<features name="person-project-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.4.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.4.0">
+
+    <repository>mvn:org.apache.karaf.features/standard/4.2.11/xml/features</repository>
+    <repository>mvn:org.apache.cxf.karaf/apache-cxf/3.4.4/xml/features</repository>
+    <repository>mvn:org.ops4j.pax.jdbc/pax-jdbc-features/1.5.0/xml/features</repository>
+
+
+    <feature name="person-model" version="${project.version}">
+        <bundle>mvn:karaf.person/person-model/${project.version}</bundle>
+    </feature>
+    <feature name="person-rest" version="${project.version}">
+        <feature>felix-http</feature>
+        <feature>cxf-jaxrs</feature>
+        <bundle>mvn:karaf.person/person-rest/${project.version}</bundle>
+    </feature>
+    <feature name="person-service" version="${project.version}">
+        <feature>aries-blueprint</feature>
+        <bundle>mvn:karaf.person/person-service/${project.version}</bundle>
+    </feature>
+    <feature name="person-provider-datasource" version="${project.version}">
+        <config name="org.ops4j.datasource-person">
+            osgi.jdbc.driver.class=org.mariadb.jdbc.Driver
+            osgi.jdbc.driver.name=mysql
+            pool=dbcp2
+            databaseName=persondb
+            user=myroot
+            password=123456789
+            url=jdbc:mysql://localhost:3306/persondb
+            dataSourceName=person-ds
+            org.apache.karaf.features.configKey=org.ops4j.datasource-person
+        </config>
+        <capability>
+            osgi.service;objectClass=javax.sql.DataSource;effective:=active;osgi.jndi.service.name=person-ds
+        </capability>
+        <feature>transaction</feature>
+        <feature>jndi</feature>
+        <feature>jpa</feature>
+        <feature>hibernate</feature>
+        <feature>jdbc</feature>
+
+        <feature>pax-jdbc-spec</feature>
+        <bundle>mvn:org.ops4j.pax.jdbc/pax-jdbc-mariadb/1.5.0</bundle>
+        <bundle>mvn:org.mariadb.jdbc/mariadb-java-client/2.4.4</bundle>
+
+        <feature>pax-jdbc-config</feature>
+        <feature>pax-jdbc-mariadb</feature>
+        <feature>pax-jdbc-pool-dbcp2</feature>
+
+    </feature>
+
+    <feature name="person-project-feature" version="${project.version}">
+        <feature version="${project.version}">person-provider-datasource</feature>
+        <feature version="${project.version}">person-model</feature>
+        <feature version="${project.version}">person-service</feature>
+        <feature version="${project.version}">person-rest</feature>
+    </feature>
+</features>

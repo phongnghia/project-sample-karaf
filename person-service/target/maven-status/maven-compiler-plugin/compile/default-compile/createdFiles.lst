@@ -1,0 +1,5 @@
+karaf\person\dao\PersonDAO.class
+karaf\person\service\impl\PersonServiceImpl.class
+karaf\person\dao\impl\PersonDAOImpl.class
+karaf\person\persistence\PersistenceUtil.class
+karaf\person\service\PersonService.class
