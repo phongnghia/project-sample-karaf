@@ -13,7 +13,10 @@
         <bundle>mvn:karaf.person/person-model/${project.version}</bundle>
     </feature>
     <feature name="person-rest" version="${project.version}">
+        <!-- with karaf version 4.2.11 -->
         <feature>felix-http</feature>
+        <!-- with karaf version 4.3.2 -->
+        <!--<feature>http</feature>-->
         <feature>cxf-jaxrs</feature>
         <bundle>mvn:karaf.person/person-rest/${project.version}</bundle>
     </feature>
