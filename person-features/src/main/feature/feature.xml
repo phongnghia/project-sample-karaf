@@ -4,7 +4,7 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.4.0">
 
-    <repository>mvn:org.apache.karaf.features/standard/4.2.11/xml/features</repository>
+    <repository>mvn:org.apache.karaf.features/standard/4.3.3/xml/features</repository>
     <repository>mvn:org.apache.cxf.karaf/apache-cxf/3.4.4/xml/features</repository>
     <repository>mvn:org.ops4j.pax.jdbc/pax-jdbc-features/1.5.0/xml/features</repository>
 
@@ -14,9 +14,9 @@
     </feature>
     <feature name="person-rest" version="${project.version}">
         <!-- with karaf version 4.2.11 -->
-        <feature>felix-http</feature>
+        <!--<feature>felix-http</feature>-->
         <!-- with karaf version 4.3.2 -->
-        <!--<feature>http</feature>-->
+        <feature>http</feature>
         <feature>cxf-jaxrs</feature>
         <bundle>mvn:karaf.person/person-rest/${project.version}</bundle>
     </feature>
@@ -31,7 +31,7 @@
             pool=dbcp2
             databaseName=persondb
             user=myroot
-            password=123456789
+            password=12345678
             url=jdbc:mysql://localhost:3306/persondb
             dataSourceName=person-ds
             org.apache.karaf.features.configKey=org.ops4j.datasource-person
