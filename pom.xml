@@ -13,6 +13,7 @@
         <module>person-service</module>
         <module>person-rest</module>
         <module>person-features</module>
+        <module>person-docker</module>
     </modules>
 
     <properties>
