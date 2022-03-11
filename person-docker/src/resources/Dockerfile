@@ -1,8 +1,10 @@
 FROM ubuntu:latest
 
+COPY ../../../../project-sample-karaf/* /app
+
 RUN apt-get update
 
-RUN apt-get install -y curl
+RUN apt-get install -y curl nginx
 
 # download mariadb
 RUN mkdir install && \
