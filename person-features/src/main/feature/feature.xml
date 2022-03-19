@@ -27,11 +27,11 @@
     <feature name="person-provider-datasource" version="${project.version}">
         <config name="org.ops4j.datasource-person">
             osgi.jdbc.driver.class=org.mariadb.jdbc.Driver
-            osgi.jdbc.driver.name=mysql
+            osgi.jdbc.driver.name=mariadb
             pool=dbcp2
             databaseName=persondb
-            user=myroot
-            password=12345678
+            user=root
+            password=password
             url=jdbc:mysql://localhost:3306/persondb
             dataSourceName=person-ds
             org.apache.karaf.features.configKey=org.ops4j.datasource-person
