@@ -4,6 +4,7 @@
 
 ### .idea
 .idea/*
+.github/*
 
 ### Java ###
 # Compiled class file
